@@ -10,6 +10,7 @@ const app = express();
 const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
+const port = process.env.PORT || 8080;
 
 // Setup handle path engines and views location
 app.set('view engine', 'hbs');
@@ -19,7 +20,7 @@ hbs.registerPartials(partialsPath);
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log('Server started at http://localhost:8080/');
 });
 
